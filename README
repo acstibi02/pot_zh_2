@@ -1,0 +1,104 @@
+Pót ZH2
+Feladat megoldása és benyújtás
+Nyissa meg:
+VCS / Get from Version Control... VAGY
+Git / Clone...
+A Get From Version Control ablakban adja meg a jelen repository URL-jét: https://github.com/csekok/potZH2.git
+Kattintson a Clone gombra.
+Válassza a Git / GitHub / Share Project on GitHub lehetőséget.
+Kattintson a Project Is Already on GitHub ablakban a Share Anyway gombra.
+Kattintson a Share Project On GitHub ablakban a Share gombra.
+A feladat megoldására 3 óra áll rendelkezésre.
+A feladat befejezésekor, de legkésőbb a 3. óra leteltekor kommitolja fel a megoldást.
+Feladatkiírás
+Bizonyára mindenki látott már rendőrjárőrt, aki szolgálata során egy út menti ellenőrző pontról a forgalmat figyelte.
+ A járőr feladata lehet a szabálytalankodók kiszűrése mellett az elhaladó járművek szúrópróbaszerű vagy módszeres ellenőrzése. Bizonyos esetekben egy műszaki ellenőrző állomás is kitelepül, amely alkalmas a kiválasztott járművek műszaki állapotának felmérésére. Egy olyan nap adatait kell feldolgoznia, amelyen a rendőri mellett műszaki ellenőrzés is zajlott egy egyirányú út mentén. Az úton haladó járművek adatait a jarmu.txt állományban tárolta el a rendőrautó forgalomrögzítő kamerájához csatlakoztatott gép.
+Az állomány sorai azonos szerkezetűek, az időt és a rendszámot tartalmazzák az elhaladás sorrendjében.
+A rendszám mindig 7 karakter hosszú, az angol ábécé nagybetűit, kötőjelet és számjegyeket tartalmaz ebben a sorrendben.
+
+Példa a jarmu.txt fájl első néhány sorára:
+
+08 46 51 FD-2717
+08 47 11 ZI-2088
+08 48 52 EL-8894
+08 50 34 SZ-3078
+08 50 57 XY-8616
+08 51 51 FY-2063
+08 52 42 AY-2194
+A 2. sor mutatja, hogy a ZI-2088 jármű 8 óra 47 perc 11 másodperckor haladt át az ellenőrző ponton.
+
+Írjon programot az alábbi feladatok megoldására:
+
+Olvassa be a jarmu.txt állományban talált adatokat, s annak felhasználásával oldja meg a következő feladatokat!
+Határozza meg, hogy aznap legalább hány óra hosszat dolgoztak az ellenőrzést végzők, ha munkaidejük egész órakor kezdődik, és pontosan egész órakor végződik! (Minden óra 0 perc 0 másodperckor kezdődik, és 59 perc 59 másodperccel végződik.) Az eredményt jelenítse meg a képernyőn!
+A rendszám első karaktere külön jelentéssel bír. Az egyes betűk közül a „B” autóbuszt, a „K” kamiont, az „M” motort jelöl, a többi rendszámhoz személygépkocsi tartozik. Jelenítse meg a képernyőn, hogy az egyes kategóriákból hány jármű haladt el az ellenőrző pont előtt!
+Mettől meddig tartott a leghosszabb forgalommentes időszak? A választ jelenítse meg a képernyőn a következő formában: óó:pp:mm - óó:pp:mm!
+A rendőrök egy baleset közelében látott járművet keresnek rendszám alapján. A szemtanúk csak a rendszám bizonyos karaktereire emlékeztek, így a rendszám ismeretlen karaktereit a * karakterrel helyettesítve keresik a nyilvántartásban. Kérjen be a felhasználótól egy ilyen rendszámot, majd jelenítse meg a képernyőn az arra illeszthető rendszámokat! Ha nincs ilyen rendszámmal jármű, akkor jelenítse meg a "Nem haladt el ilyen rendszámmal jármű." feliratot!
+Műszaki ellenőrzésre minden órában egy járművet választanak ki. Azt, amelyik abban az órában először halad arra. Az ellenőrzés óráját és az ellenőrzött jármű rendszámát írja ki az ellenorzes.txt állományba a következő formában: 9 óra: GK-3407! Minden óra adata külön sorba kerüljön! Csak azon órák adatai kerüljenek kiíratásra, amikor volt ellenőrizhető jármű!
+A program az alábbi modulokból kell, hogy álljon:
+
+ido: Egyetlen Ido osztályt tartalmaz.
+Az osztály attribútumai:
+
+ora: Az idő óra értéke (0-23).
+perc: Az idő perc értéke (0-59).
+masodperc: Az idő másodperc értéke (0-59).
+
+Az osztálynak legyenek saját metódusai.
+
+jarmu: Egyetlen Jarmu osztályt tartalmaz.
+Az osztály attribútumai:
+
+ido: Az az Ido objektum, ami a jármű elhaladásának időpontját tárolja.
+rendszam: A jármű rendszáma.
+tipus: A jármű típusa.
+
+Az osztálynak legyenek saját metódusai.
+
+ellenorzes: Egyetlen Ellenorzes osztályt tartalmaz.
+Az osztály attribútumai:
+
+jarmuvek: A járművek listája.
+
+Az osztálynak legyen legalább 6 saját metódusa a feladatok megoldásával.
+
+main: Az ellenorzes modul egyes metódusait hívja meg.
+
+Megoldás közben ügyeljen az alábbiakra
+A képernyőre írást igénylő részfeladatok eredményének megjelenítése előtt írja a képernyőre a feladat sorszámát!
+Ha a felhasználótól kér be adatot, jelenítse meg a képernyőn, milyen értéket vár!
+Ellenőrizze a felhasználó által megadott adatok helyességét, érvényességét!
+Minta a szöveges kimenetek kialakításához
+A képernyőre írást nem igénylő feladatok esetén nem szükséges a feladat sorszámát sem kiíratnia.
+
+Teszteset 1
+1. feladat: A jarmu.txt beolvasása.
+2. feladat: Az ellenőrzést végzők legalább 5 órát dolgoztak.
+3. feladat: Elhaladt járművek mennyisége típusonként:
+	autóbusz: 10
+	kamion: 12
+	motor: 15
+	szemelygépkocsi: 317
+4. feladat: A leghosszabb forgalommentes időszak: 08:57:48 - 09:01:06.
+5. feladat: Adja meg a keresett rendszámot: **
+Nem haladt el ilyen rendszámmal jármű.
+6. feladat: Az ellenőrzések adatainak kiíratása.
+Teszteset 2
+1. feladat: A jarmu.txt beolvasása.
+2. feladat: Az ellenőrzést végzők legalább 5 órát dolgoztak.
+3. feladat: Elhaladt járművek mennyisége típusonként:
+	autóbusz: 10
+	kamion: 12
+	motor: 15
+	szemelygépkocsi: 317
+4. feladat: A leghosszabb forgalommentes időszak: 08:57:48 - 09:01:06.
+5. feladat: Adja meg a keresett rendszámot: **-7525
+	YA-7525
+6. feladat: Az ellenőrzések adatainak kiíratása.
+Példa az ellenorzes.txt fájl első néhány sorára:
+8 óra: FD-2717
+9 óra: GK-3407
+10 óra: RQ-8890
+11 óra: IN-5066
+12 óra: GC-0459
+13 óra: CH-1893
